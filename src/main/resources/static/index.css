@@ -1,0 +1,64 @@
+body {
+    font-size: 28px;
+    background-color: lightgray;
+}
+.index ul {
+    border-top: 4px solid #4CAF50;
+    list-style-type: none;
+    margin: -8px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+.index li {
+    float: right;
+}
+.index li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.index li a:hover {
+    background-color: #111;
+}
+
+
+.active {
+    background-color: #4CAF50;
+}
+
+.readers ul {
+    list-style-type: none;
+    margin: 8px;
+    margin-left: -15px;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    position: absolute;
+    height: 100%;
+    overflow: auto;
+    font-size: 20px;
+
+}
+
+.readers li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.readers li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.readers li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
