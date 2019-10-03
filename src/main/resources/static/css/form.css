@@ -8,6 +8,17 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
 input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
@@ -24,13 +35,30 @@ input[type=submit]:hover {
 }
 
 form{
-    padding-top: 10px;
+    padding-top: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-left: 400px;
     margin-right: 50px;
     background-color: #f2f2f2;
     border-radius: 5px;
+}
 
+table{
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-left: 340px;
+    margin-right: 50px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.search{
+    margin-left: 340px;
+    margin-top: 10px;
+    margin-right: 200px;
 }

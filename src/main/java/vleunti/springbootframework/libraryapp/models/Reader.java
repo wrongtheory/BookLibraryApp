@@ -2,10 +2,8 @@ package vleunti.springbootframework.libraryapp.models;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Reader {
@@ -19,8 +17,9 @@ public class Reader {
     private String lastname;
     @NotBlank(message = "E-mail is mandatory")
     private String email;
-    //@NotBlank(message = "ID Number is mandatory")
-    private Integer idNumber;
+    //@NotBlank(message = "idNumber is mandatory")
+    @Column(unique = true)
+    private Long idNumber;
     @NotBlank(message = "Address is mandatory")
     private String address;
 
@@ -28,7 +27,16 @@ public class Reader {
 
     }
 
-    public Reader(String firstname, String lastname, String email, int idNumber, String address) {
+    public Reader(Long id,String firstname, String lastname, String email, Long idNumber, String address) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.idNumber = idNumber;
+        this.address = address;
+    }
+
+
+    public Reader(String firstname, String lastname, String email, Long idNumber, String address) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -68,11 +76,12 @@ public class Reader {
         this.email = email;
     }
 
-    public Integer getId_Number() {
+    public Long getIdNumber() {
         return idNumber;
     }
 
-    public void setIdNumber(Integer idNumber) {
+    public void setIdNumber(Long idNumber) {
+
         this.idNumber = idNumber;
     }
 
@@ -84,6 +93,19 @@ public class Reader {
         this.address = address;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reader reader = (Reader) o;
+        return idNumber == reader.idNumber &&
+                id.equals(reader.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, idNumber);
+    }
 
     @Override
     public String toString() {
@@ -92,7 +114,7 @@ public class Reader {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
-                ", ID_Number=" + idNumber +
+                ", idNumber=" + idNumber +
                 ", address='" + address + '\'' +
                 '}';
     }

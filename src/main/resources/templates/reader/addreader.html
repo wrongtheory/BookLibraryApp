@@ -2,12 +2,19 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="form.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
     <title>Welcome to Library</title>
+    <script>
+        function res() {
+            document.getElementById("form").reset();
+        }
 
+    </script>
 </head>
 <body>
+
+
 
 <div class="index">
     <ul>
@@ -22,32 +29,35 @@
 <div class="readers">
     <ul>
         <div>
-            <li><a class="active" th:href="@{addreader}">Add Reader</a></li>
+            <li><a class="active" th:href="@{addreader}" >Add Reader</a></li>
+            <li><a th:href="@{allreaders}">Show All Readers</a></li>
             <li><a href="#news">Modify Reader</a></li>
             <li><a href="#contact">Remove Reader</a></li>
-            <li><a href="#about">Search Reader</a></li>
+            <li><a th:href="@{searchreader}">Search Reader</a></li>
         </div>
     </ul>
 </div>
 
 <div>
-    <form action="#" th:action="@{/addreader}" th:object="${reader}" method="post">
+    <form action="#" th:action="@{/addreader}" th:object="${reader}" method="post" id="form">
+
         <label for="fname">First Name</label>
         <input type="text" id="fname" name="firstname" placeholder="First name" th:value="${reader?.firstname}"/>
 
         <label for="lname">Last Name</label>
         <input type="text" id="lname" name="lastname" placeholder="Last name" th:value="${reader?.lastname}"/>
 
-        <label for="id">ID Number</label>
-        <input type="text" id="id" name="id" placeholder="ID number" th:value="${reader?.id_Number}"/>
-
         <label for="email">E-mail</label>
         <input type="text" id="email" name="email" placeholder="E-mail" th:value="${reader?.email}"/>
+
+        <label for="idn">ID Number</label>
+        <input type="text" id="idn" name="idNumber" placeholder="ID number" th:value="${reader?.id}"/>
 
         <label for="address">Address</label>
         <input type="text" id="address" name="address" placeholder="Address" th:value="${reader?.address}"/>
 
         <input type="submit" value="Submit"/>
+
     </form>
 </div>
 

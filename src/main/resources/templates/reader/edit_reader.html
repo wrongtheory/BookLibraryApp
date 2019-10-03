@@ -2,12 +2,19 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" type="text/css" href="form.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
     <title>Welcome to Library</title>
+    <script>
+        function res() {
+            document.getElementById("form").reset();
+        }
 
+    </script>
 </head>
 <body>
+
+
 
 <div class="index">
     <ul>
@@ -22,12 +29,14 @@
 <div class="readers">
     <ul>
         <div>
-            <li><a th:href="@{addreader}">Add Reader</a></li>
+            <li><a class="active" th:href="@{addreader}" >Add Reader</a></li>
+            <li><a class="active" th:href="@{allreaders}" >Show All Readers</a></li>
             <li><a href="#news">Modify Reader</a></li>
             <li><a href="#contact">Remove Reader</a></li>
             <li><a href="#about">Search Reader</a></li>
         </div>
     </ul>
 </div>
+
 </body>
 </html>
