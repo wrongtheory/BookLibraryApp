@@ -24,20 +24,4 @@ public interface ReaderRepository extends CrudRepository<Reader, Long> {
     int findAllByMonth();
 
 
-
-    //@Query("select count(date) from Reader where Month(date) = ")
-
-    //List<Reader> findAllByDate_MonthValue(LocalDate date);
-
-/*
-    Integer getCountDatesCurrentMonth();
-    List<String> allDates();
-*/
-
-    /*@Transactional
-    @Modifying
-    @Query("update Reader r set r.firstname = ?1, r.lastname = ?2, r.email = ?3, r.address = ?4 where r.idNumber = ?5")
-    void setUserInfoById(String firstname, String lastname, String email, String address,Long id);*/
-
-
 }
