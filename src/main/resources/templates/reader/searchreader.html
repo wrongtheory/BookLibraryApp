@@ -125,8 +125,6 @@
         <form action="" th:action="@{/searchreader(reader_id=${givebook?.getReader()?.getIdNumber()}, book_id=${givebook?.getId()})}"  th:object="${givebook}" class="form-container">
 
 
-
-        <!--<label for="book_id"><b>Reader ID</b></label>-->
         <input type="hidden" name="id" th:value="${reader?.getIdNumber()}"/>
         <label for="book_id"><b>Book ID</b></label>
         <input type="text" id="book_id" th:value="${givebook?.getId()}" placeholder="Enter Book ID" name="book_id" required>
