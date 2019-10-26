@@ -1,9 +1,11 @@
 package vleunti.springbootframework.libraryapp.models;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Reader {
@@ -11,37 +13,36 @@ public class Reader {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotBlank(message = "First Name is mandatory")
+
+    @NotNull(message = "First Name is mandatory")
     private String firstname;
-    @NotBlank(message = "Last Name is mandatory")
+
+    @NotNull(message = "Last Name is mandatory")
     private String lastname;
-    @NotBlank(message = "E-mail is mandatory")
+
     private String email;
-    //@NotBlank(message = "idNumber is mandatory")
+
+    @NotNull(message = "idNumber is mandatory")
     @Column(unique = true)
     private Long idNumber;
-    @NotBlank(message = "Address is mandatory")
+
+    @NotNull(message = "Address is mandatory")
     private String address;
 
-    public Reader(){
+    private LocalDate date;
 
-    }
+    @OneToMany(mappedBy = "reader")
+    private Set<Book> bookSet;
 
-    public Reader(Long id,String firstname, String lastname, String email, Long idNumber, String address) {
+    public Reader(){}
+
+    public Reader(String firstname, String lastname, String email, Long idNumber, String address, LocalDate date ) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.idNumber = idNumber;
         this.address = address;
-    }
-
-
-    public Reader(String firstname, String lastname, String email, Long idNumber, String address) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.idNumber = idNumber;
-        this.address = address;
+        this.date = date;
     }
 
     public Long getId() {
@@ -80,10 +81,7 @@ public class Reader {
         return idNumber;
     }
 
-    public void setIdNumber(Long idNumber) {
-
-        this.idNumber = idNumber;
-    }
+    public void setIdNumber(Long idNumber) { this.idNumber = idNumber; }
 
     public String getAddress() {
         return address;
@@ -91,6 +89,22 @@ public class Reader {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Set<Book> getBookSet() {
+        return bookSet;
+    }
+
+    public void setBookSet(Set<Book> bookSet) {
+        this.bookSet = bookSet;
     }
 
     @Override
@@ -116,6 +130,7 @@ public class Reader {
                 ", email='" + email + '\'' +
                 ", idNumber=" + idNumber +
                 ", address='" + address + '\'' +
+                ", datetime='" + date + '\'' +
                 '}';
     }
 }

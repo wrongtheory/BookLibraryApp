@@ -4,25 +4,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/searchreader.css">
+    <link rel="stylesheet" type="text/css" href="css/giveabook.css">
     <title>Welcome to Library</title>
 
     <script>
+        function giveBookOpenForm() {
+            document.getElementById("giveabook").style.display = "block";
+        }
 
-        function show() {
-
-                var table = document.getElementById("table1");
-                var row = td.contentEditable;
-                var cell1 = row.insertCell(1);
-                //var cell2 = row.insertCell(2);
-
-
-                //cell1.innerHTML = "NEW CELL1";
-                //cell2.innerHTML = "NEW CELL2";
-                row.innerHTML = "";
-
-           }
-
-
+        function giveBookCloseForm() {
+            document.getElementById("giveabook").style.display = "none";
+        }
     </script>
 
 </head>
@@ -50,39 +42,100 @@
 
 
 
-<form action="#" th:action="@{/searchreader(idNumber=${reader?.idNumber})}" th:object="${reader}" >
+<form action="" th:action="@{/searchreader(idNumber=${reader?.idNumber})}" th:object="${reader}" >
 
-        <label for="id">ID</label>
+        <label for="id">Find Reader By ID Number</label>
         <input type="text" id="id" name="id" th:value="${reader?.idNumber}" placeholder="Reader ID"/>
-        <input type="submit" value="Search"/>
+        <input type="submit" value="Search" id="input"/>
 
 
         <table id="table1">
 
-            <tr>
+            <tr1>
                 <th>ID</th>
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>E-mail</th>
                 <th>ID Number</th>
                 <th>Address</th>
-            </tr>
+                <th><a style="display:inline-table;" th:text="${messages?.get(1)}" onclick="giveBookOpenForm(); return false;" href="" >Give a Book</a></th>
+            </tr1>
 
             <tr th:each="re:${reader}" id="tr1">
-                <td contenteditable="true" th:text="${reader?.id}">hz</td>
-                <td th:text="${reader?.firstname}">fn</td>
-                <td th:text="${reader?.lastname}">ln</td>
-                <td th:text="${reader?.email}">ln</td>
-                <td th:text="${reader?.idNumber}">ln</td>
-                <td th:text="${reader?.address}">ln</td>
+                <td th:text="${reader?.id}">id</td>
+                <td th:text="${reader?.firstname}">firstname</td>
+                <td th:text="${reader?.lastname}">lastname</td>
+                <td th:text="${reader?.email}">email</td>
+                <td th:text="${reader?.idNumber}">idNumber</td>
+                <td th:text="${reader?.address}">address</td>
+                <td><a style="display:inline-table;" th:text="${messages?.get(0)}" th:href="@{/delete(idNumber=${reader?.idNumber})}" th:value="${reader?.idNumber}">Delete Reader</a></td>
+             <!--   <td th:if="${#allReaderBooks(reader?.getBookSet()>0)}" th:text="${messages}"></td>
+                <p class="alert alert-danger" th:if="${!= null}" th:text="${error}"></p>-->
+                <td th:text="${morebooks}"></td>
             </tr>
         </table>
 
-    <button value="Delete" id="delete" type="button" onclick="show()">Delete</button>
-    <a th:href="@{/delete(idNumber=${reader?.idNumber})}" th:value="${reader?.idNumber}">Delete</a>
-    <a th:href="@{/delete(idNumber=${reader?.idNumber})}" th:value="${reader?.idNumber}" onclick="">Update</a>
+  <!--  <div class="form-popup" id="showallbooks" th:object="${reader}">-->
+        <!--<form action="" th:action="@{/searchreader(reader_id=${givebook?.getReader()?.getIdNumber()}, book_id=${givebook?.getId()})}"  th:object="${givebook}" class="form-container">-->
+        <!-- <form action="" th:action="@{/searchreader(reader_id=${reader?.getIdNumber()})}"  th:object="${reader}" class="form-container">-->
+
+    <p style="color: #4CAF50">Reader Books</p>
+
+    <table id="table2" th:object="${allbooks}">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Return book</th>
+        </tr>
+        <tr th:each="book, state :${allbooks}" id="tr2"
+            th:classappend="${state.odd}?'odd-row':'even-row'">
+            <td th:text="${book.id}">id</td>
+            <td th:text="${book.bookTitle}">title</td>
+            <td th:text="${book.bookAuthor}">author</td>
+            <td><a style="display:inline-table;" th:text="${messages?.get(2)}" th:href="@{/returnbook(id=${book?.getId()},idNumber=${reader?.getIdNumber()})}" th:value="${reader?.idNumber}">Return Book</a></td>
+        </tr>
+    </table>
+
+        <!--<button type="submit" class="btn">OK</button>-->
+        <!--<button type="button" class="btn cancel" onclick="ShowAllBookscloseForm()">Close</button>-->
+        <!--    </form>-->
+<!--    </div>-->
+
+    <div th:object="${messages}">
+        <table>
+            <tr>
+
+
+        <!--<td><a style="display:inline-table;" th:text="${messages?.get(2)}" onclick="ShowAllBooksOpenForm(); return false;" href="" >Show all Books</a></td>-->
+        <!--<td><a style="display:none;" class="open-button" onclick="openForm()">Give a book</a></td>-->
+
+            </tr>
+        </table>
+    </div>
+   <!-- <a th:href="@{/update(idNumber=${reader?.idNumber},firstname=${reader?.firstname})}" th:field="*{firstname}">Update</a>-->
 
 </form>
+
+
+<!--<button class="open-button" onclick="openForm()">Open Form</button>-->
+
+<div class="form-popup" id="giveabook">
+    <!--<form action="" th:action="@{/searchreader(reader_id=${givebook?.getReader()?.getIdNumber()}, book_id=${givebook?.getId()})}"  th:object="${givebook}" class="form-container">-->
+        <form action="" th:action="@{/searchreader(reader_id=${givebook?.getReader()?.getIdNumber()}, book_id=${givebook?.getId()})}"  th:object="${givebook}" class="form-container">
+
+
+
+        <!--<label for="book_id"><b>Reader ID</b></label>-->
+        <input type="hidden" name="id" th:value="${reader?.getIdNumber()}"/>
+        <label for="book_id"><b>Book ID</b></label>
+        <input type="text" id="book_id" th:value="${givebook?.getId()}" placeholder="Enter Book ID" name="book_id" required>
+
+        <button type="submit" class="btn">OK</button>
+        <button type="button" class="btn cancel" onclick="giveBookCloseForm()">Close</button>
+    </form>
+</div>
+
 
 
 </body>

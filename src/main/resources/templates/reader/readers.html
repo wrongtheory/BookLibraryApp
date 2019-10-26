@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
+    <link rel="stylesheet" type="text/css" href="css/readers.css">
     <title>Welcome to Library</title>
 
 </head>
@@ -22,13 +23,26 @@
 <div class="readers">
     <ul>
         <div>
-            <li><a th:href="@{addreader}">Add Reader</a></li>
+            <li><a th:href="@{addreader}" th:method="get">Add Reader</a></li>
             <li><a th:href="@{allreaders}">Show All Readers</a></li>
-            <li><a th:href="@{edit_reader}">Modify Reader</a></li>
-            <li><a href="#contact">Remove Reader</a></li>
             <li><a th:href="@{searchreader}">Search Reader</a></li>
         </div>
     </ul>
 </div>
+
+
+<table style="border-spacing: 20px;" class="total" th:action="@{/allreaders}" th:object="${countAllRegisteredReaders}">
+    <tr>
+        <td style="background-color: #4CAF50; text-align: center; width: 300px">
+            <p>Total registered Readers</p>
+            <label id="total" th:text="${countAllRegisteredReaders}">Number</label>
+        </td>
+        <td style="background-color: gold; text-align: center; width: 300px; ">
+            <p>Current Month registered Readers</p>
+            <label id="totalmonth" th:text="${currentMonthRegisteredReaders}">Number</label>
+        </td>
+    </tr>
+</table>
+
 </body>
 </html>

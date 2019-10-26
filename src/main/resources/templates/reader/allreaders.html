@@ -39,14 +39,15 @@
         <th>Address</th>
         <th>Date</th>
     </tr>
+
     <tr th:each="reader:${readers}">
-        <td th:text="${reader.id}">hz</td>
-        <td th:text="${reader.firstname}">fn</td>
-        <td th:text="${reader.lastname}">ln</td>
-        <td th:text="${reader.email}">ln</td>
-        <td th:text="${reader.idNumber}">ln</td>
-        <td th:text="${reader.address}">ln</td>
-        <td th:text="${reader.getDatetime()}">ln</td>
+        <td th:text="${reader.id}">id</td>
+        <td th:text="${reader.firstname}">firstname</td>
+        <td th:text="${reader.lastname}">lastname</td>
+        <td th:text="${reader.email}">email</td>
+        <td th:text="${reader.idNumber}">idNumber</td>
+        <td th:text="${reader.address}">address</td>
+        <td th:text="${reader.getDate()}">getDate</td>
 
     </tr>
 </table>

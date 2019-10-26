@@ -30,22 +30,22 @@
 
 <div>
 
-    <form action="#" th:action="@{/addreader}" th:object="${reader}" method="post" id="form">
+    <form action="#" th:action="@{/addreader}" th:object="${addreader}" method="post">
 
         <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="First name" th:value="${reader?.firstname}"/>
+        <input type="text" id="fname" name="firstname" placeholder="First name" th:value="${reader?.firstname}" required/>
 
         <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Last name" th:value="${reader?.lastname}"/>
+        <input type="text" id="lname" name="lastname" placeholder="Last name" th:value="${reader?.lastname}" required/>
 
         <label for="email">E-mail</label>
         <input type="text" id="email" name="email" placeholder="E-mail" th:value="${reader?.email}"/>
 
         <label for="idn">ID Number</label>
-        <input type="text" id="idn" name="idNumber" placeholder="ID number" th:value="${reader?.idNumber}"/>
+        <input type="text" id="idn" name="idNumber" placeholder="ID number" th:value="${reader?.idNumber}" required/>
 
         <label for="address">Address</label>
-        <input type="text" id="address" name="address" placeholder="Address" th:value="${reader?.address}"/>
+        <input type="text" id="address" name="address" placeholder="Address" th:value="${reader?.address}" required/>
 
         <input type="submit" value="Submit"/>
 
