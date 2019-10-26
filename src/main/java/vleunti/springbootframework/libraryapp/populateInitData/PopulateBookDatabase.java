@@ -1,11 +1,10 @@
-package vleunti.springbootframework.libraryapp.PupulateInitData;
+package vleunti.springbootframework.libraryapp.populateInitData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import vleunti.springbootframework.libraryapp.models.Book;
-import vleunti.springbootframework.libraryapp.models.Reader;
 import vleunti.springbootframework.libraryapp.models.repositories.BookRepository;
 import vleunti.springbootframework.libraryapp.services.BookService;
 

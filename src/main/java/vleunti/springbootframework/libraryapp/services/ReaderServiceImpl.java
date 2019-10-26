@@ -25,24 +25,11 @@ public class ReaderServiceImpl implements ReaderService {
     @Autowired
     private BookRepository bookRepository;
 
-/*
-    @Override
-    public String getCurrentDate() {
-        LocalDate localDate = LocalDate.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String formatDate = localDate.format(format);
-        return  formatDate;
-    }
-*/
-
     @Override
     public Reader addNewReader(Reader reader) {
         reader.setDate(LocalDate.now());
         return this.readerRepository.save(reader);
     }
-
-
-
 
     @Override
     public List<Reader> findAllReaders() {
@@ -76,22 +63,6 @@ public class ReaderServiceImpl implements ReaderService {
     public int findAllByMonth() {
         return readerRepository.findAllByMonth();
     }
-
-    /* @Override
-    public Integer getCurrentMonthRegisteredReaders() {
-        List<String> dates = readerRepository.allDates();
-        Integer date = LocalDate.now().getMonthValue();
-        String s;
-        int count=0;
-
-        for(int i =0;i<dates.size();i++){
-            s = dates.get(i).charAt(5)+""+dates.get(i).charAt(6);
-            if(s.equals(date.toString()))
-                count++;
-        }
-
-        return count;
-    }*/
 
     public List getMessages(){
        List<String> messages = new ArrayList<>();

@@ -1,4 +1,4 @@
-package vleunti.springbootframework.libraryapp.PupulateInitData;
+package vleunti.springbootframework.libraryapp.populateInitData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
