@@ -5,16 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/form.css">
     <title>Welcome to Library</title>
-    <script>
-        function res() {
-            document.getElementById("form").reset();
-        }
-
-    </script>
 </head>
 <body>
-
-
 
 <div class="index">
     <ul>
@@ -31,14 +23,13 @@
         <div>
             <li><a class="active" th:href="@{addreader}" >Add Reader</a></li>
             <li><a th:href="@{allreaders}">Show All Readers</a></li>
-            <li><a href="#news">Modify Reader</a></li>
-            <li><a href="#contact">Remove Reader</a></li>
             <li><a th:href="@{searchreader}">Search Reader</a></li>
         </div>
     </ul>
 </div>
 
 <div>
+
     <form action="#" th:action="@{/addreader}" th:object="${reader}" method="post" id="form">
 
         <label for="fname">First Name</label>
@@ -51,7 +42,7 @@
         <input type="text" id="email" name="email" placeholder="E-mail" th:value="${reader?.email}"/>
 
         <label for="idn">ID Number</label>
-        <input type="text" id="idn" name="idNumber" placeholder="ID number" th:value="${reader?.id}"/>
+        <input type="text" id="idn" name="idNumber" placeholder="ID number" th:value="${reader?.idNumber}"/>
 
         <label for="address">Address</label>
         <input type="text" id="address" name="address" placeholder="Address" th:value="${reader?.address}"/>

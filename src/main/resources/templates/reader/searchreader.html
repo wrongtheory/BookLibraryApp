@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <link rel="stylesheet" type="text/css" href="css/searchreader.css">
     <title>Welcome to Library</title>
+
     <script>
-        function res() {
-            document.getElementById("form").reset();
-        }
+
+        function show() {
+
+                var table = document.getElementById("table1");
+                var row = td.contentEditable;
+                var cell1 = row.insertCell(1);
+                //var cell2 = row.insertCell(2);
+
+
+                //cell1.innerHTML = "NEW CELL1";
+                //cell2.innerHTML = "NEW CELL2";
+                row.innerHTML = "";
+
+           }
+
 
     </script>
+
 </head>
 <body>
-
-
 
 <div class="index">
     <ul>
         <div>
             <li><a th:href="@{books}">Books</a></li>
-            <li><a class="active" th:href="@{readers.html}">Readers</a></li>
+            <li><a class="active" th:href="@{readers}">Readers</a></li>
             <li><a th:href="@{index}">Home</a></li>
         </div>
     </ul>
@@ -31,22 +43,47 @@
         <div>
             <li><a th:href="@{addreader}" >Add Reader</a></li>
             <li><a th:href="@{allreaders}" >Show All Readers</a></li>
-            <li><a href="#news">Modify Reader</a></li>
-            <li><a href="#contact">Remove Reader</a></li>
-            <li><a  class="active" href="#about">Search Reader</a></li>
+            <li><a class="active" th:href="@{searchreader}">Search Reader</a></li>
         </div>
     </ul>
 </div>
 
-<div class="search">
-
-    <label for="id">ID</label>
-    <input type="text" id="id" name="id" placeholder="Reader ID"/>
-
-    <input type="submit" value="Search"/>
 
 
-</div>
+<form action="#" th:action="@{/searchreader(idNumber=${reader?.idNumber})}" th:object="${reader}" >
+
+        <label for="id">ID</label>
+        <input type="text" id="id" name="id" th:value="${reader?.idNumber}" placeholder="Reader ID"/>
+        <input type="submit" value="Search"/>
+
+
+        <table id="table1">
+
+            <tr>
+                <th>ID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>E-mail</th>
+                <th>ID Number</th>
+                <th>Address</th>
+            </tr>
+
+            <tr th:each="re:${reader}" id="tr1">
+                <td contenteditable="true" th:text="${reader?.id}">hz</td>
+                <td th:text="${reader?.firstname}">fn</td>
+                <td th:text="${reader?.lastname}">ln</td>
+                <td th:text="${reader?.email}">ln</td>
+                <td th:text="${reader?.idNumber}">ln</td>
+                <td th:text="${reader?.address}">ln</td>
+            </tr>
+        </table>
+
+    <button value="Delete" id="delete" type="button" onclick="show()">Delete</button>
+    <a th:href="@{/delete(idNumber=${reader?.idNumber})}" th:value="${reader?.idNumber}">Delete</a>
+    <a th:href="@{/delete(idNumber=${reader?.idNumber})}" th:value="${reader?.idNumber}" onclick="">Update</a>
+
+</form>
+
 
 </body>
 </html>
