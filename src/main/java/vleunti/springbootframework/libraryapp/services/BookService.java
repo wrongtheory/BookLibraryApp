@@ -1,7 +1,6 @@
 package vleunti.springbootframework.libraryapp.services;
 
 import vleunti.springbootframework.libraryapp.models.Book;
-
 import java.util.List;
 
 public interface BookService {

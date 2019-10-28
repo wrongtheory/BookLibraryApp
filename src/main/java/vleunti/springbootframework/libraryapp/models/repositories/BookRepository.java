@@ -6,7 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import vleunti.springbootframework.libraryapp.models.Book;
-import vleunti.springbootframework.libraryapp.models.Reader;
 
 import java.util.List;
 

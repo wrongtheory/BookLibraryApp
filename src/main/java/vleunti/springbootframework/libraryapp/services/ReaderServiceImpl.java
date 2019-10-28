@@ -1,19 +1,15 @@
 package vleunti.springbootframework.libraryapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vleunti.springbootframework.libraryapp.models.Book;
 import vleunti.springbootframework.libraryapp.models.Reader;
 import vleunti.springbootframework.libraryapp.models.repositories.BookRepository;
 import vleunti.springbootframework.libraryapp.models.repositories.ReaderRepository;
-
-import javax.validation.ConstraintViolationException;
-import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service

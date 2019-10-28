@@ -6,13 +6,11 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import vleunti.springbootframework.libraryapp.models.Book;
 import vleunti.springbootframework.libraryapp.models.repositories.BookRepository;
-import vleunti.springbootframework.libraryapp.services.BookService;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class PopulateBookDatabase implements ApplicationListener<ContextRefreshedEvent> {
+public class PopulateDatabaseWithBooks implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
     BookRepository bookRepository;

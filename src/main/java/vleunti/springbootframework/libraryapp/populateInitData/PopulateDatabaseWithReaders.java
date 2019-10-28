@@ -6,14 +6,13 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import vleunti.springbootframework.libraryapp.models.Reader;
 import vleunti.springbootframework.libraryapp.models.repositories.ReaderRepository;
-import vleunti.springbootframework.libraryapp.services.ReaderService;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class PopulateReaderDatabase implements ApplicationListener<ContextRefreshedEvent> {
+public class PopulateDatabaseWithReaders implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
     public ReaderRepository readerRepository;
