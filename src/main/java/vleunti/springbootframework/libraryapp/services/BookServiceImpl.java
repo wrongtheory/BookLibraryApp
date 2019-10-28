@@ -26,6 +26,7 @@ public class BookServiceImpl implements BookService {
 
         return  books;
     }
+    @Override
     public Book updateBookSetReaderId(Long reader_id,Long book_id){
         Book book = new Book();
         bookRepository.updateBookSetReaderId(reader_id,book_id);

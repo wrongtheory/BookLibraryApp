@@ -17,7 +17,7 @@ public interface BookRepository extends CrudRepository<Book,Long> {
     List<Book> findBooksByBookTitle(String bookTitle);
 
     @Transactional
-    @Modifying //clearAutomatically = true, flushAutomatically = true
+    @Modifying
     @Query(value = "update Book set reader_id=(select r.id from Reader r where r.id_Number=:reader_id) where id=:book_id",nativeQuery = true)
     Integer updateBookSetReaderId(Long reader_id,Long book_id);
 

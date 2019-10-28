@@ -16,17 +16,25 @@ public class PopulateBookDatabase implements ApplicationListener<ContextRefreshe
 
     @Autowired
     BookRepository bookRepository;
-    @Autowired
-    BookService bookService;
 
     List<Book> bookList = new ArrayList<>();
 
     public List<Book> getBookList(){
-        System.out.println("Populez carti");
-        bookList.add(new Book("Amintiri din Copilarie","Ion Creanga",3));
-        bookList.add(new Book("Amintiri de Acasa","Victor Leunti",1));
-        bookList.add(new Book("Amintiri de altadata","Vasea Mure",1));
-        bookList.add(new Book("Luceafarul","Mihai Eminescu",10));
+        bookList.add(new Book("In Search of Lost Time","Marcel Proust",3));
+        bookList.add(new Book("Ulysses","James Joyce",1));
+        bookList.add(new Book("Don Quixote","Miguel de Cervantes",1));
+        bookList.add(new Book("The Great Gatsby","F. Scott Fitzgerald",10));
+
+        bookList.add(new Book(" Moby Dick","Herman Melville",6));
+        bookList.add(new Book("One Hundred Years of Solitude","Gabriel Garcia Marquez",7));
+        bookList.add(new Book("War and Peace","Leo Tolstoy",1));
+        bookList.add(new Book("Hamlet","William Shakespeare",5));
+
+        bookList.add(new Book("  Lolita","Vladimir Nabokov",9));
+        bookList.add(new Book(" The Odyssey","Homer",4));
+        bookList.add(new Book("The Brothers Karamazov","Fyodor Dostoyevsky",2));
+        bookList.add(new Book("The Adventures of Huckleberry Finn","Mark Twain",7));
+
 
         for(int i = 0; i<bookList.size();i++)
             bookRepository.save(bookList.get(i));

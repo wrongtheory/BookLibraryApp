@@ -11,6 +11,7 @@
     <groupId>vleunti.springbootframework</groupId>
     <artifactId>libraryapp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>libraryapp</name>
     <description>My Library Project in Spring Boot</description>
 

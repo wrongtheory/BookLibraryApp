@@ -9,8 +9,8 @@ public interface ReaderService  {
     List<Reader> findAllReaders();
     Reader findReaderByIdNumber (Long idNumber);
     int deleteReaderByIdNumber(Long idNumber);
-    public List getMessages();
-    int findAllByMonth();
+    List getMessages();
+    int findAllRegisteredReadersCurrentMonth();
 
 
 }

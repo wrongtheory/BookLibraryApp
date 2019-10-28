@@ -1,8 +1,10 @@
 .totalbooks{
-    width: 670px;
-    height: 200px;
-    padding-left: 100px;
+    width: 650px;
+    height: 230px;
+    padding-left: 230px;
     border: none;
     text-align: center;
     border-spacing: 10px;
+    font-size: 15px;
 }
+

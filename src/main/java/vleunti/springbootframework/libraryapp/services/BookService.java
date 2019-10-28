@@ -10,7 +10,7 @@ public interface BookService {
     List<Book> findBookByTitle(String title);
     Book updateBookSetReaderId(Long reader_id,Long book_id);
     List<Book> findAllBooksByReaderId(Long reader_id);
-    public void setBookReaderIdToNull(Long reader_id);
+    void setBookReaderIdToNull(Long reader_id);
     List<Book> findAllBooks();
 }
 

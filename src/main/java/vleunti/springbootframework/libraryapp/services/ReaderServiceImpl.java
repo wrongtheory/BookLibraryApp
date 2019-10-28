@@ -49,18 +49,13 @@ public class ReaderServiceImpl implements ReaderService {
     public int deleteReaderByIdNumber(Long idNumber) {
         List<Book> allReaderBooks = bookRepository.showAllBooksByReaderId(idNumber);
         System.out.println(allReaderBooks.size());
-        if (allReaderBooks.size() == 0) {
+        if(allReaderBooks.size()==0)
             readerRepository.deleteByIdNumber(idNumber);
-        }
-        else {
-            throw new ReaderHasBooksException("Reader has books");
-
-        }
-        return 0;
+        return allReaderBooks.size();
     }
 
     @Override
-    public int findAllByMonth() {
+    public int findAllRegisteredReadersCurrentMonth() {
         return readerRepository.findAllByMonth();
     }
 
@@ -69,6 +64,7 @@ public class ReaderServiceImpl implements ReaderService {
        messages.add("Delete Reader");
        messages.add("Give a book");
        messages.add("Return book");
+       messages.add("Reader has 1 or more than 1 Book");
        return messages;
     }
 }
