@@ -15,10 +15,11 @@ public interface BookRepository extends CrudRepository<Book,Long> {
     @Query(value = "SELECT * FROM BOOK where book_title like %:bookTitle%",nativeQuery = true)
     List<Book> findBooksByBookTitle(String bookTitle);
 
-    @Transactional
     @Modifying
+    @Transactional
     @Query(value = "update Book set reader_id=(select r.id from Reader r where r.id_Number=:reader_id) where id=:book_id",nativeQuery = true)
     Integer updateBookSetReaderId(Long reader_id,Long book_id);
+
 
     @Query(value = "select * from Book b inner join Reader on b.reader_id=(select r.id from Reader r where r.id_Number=:reader_id) and reader.id = (select r.id from Reader r where r.id_Number=:reader_id)",nativeQuery = true)
     List<Book> showAllBooksByReaderId(Long reader_id);

@@ -7,6 +7,7 @@ import vleunti.springbootframework.libraryapp.models.Reader;
 
 @Repository
 public interface ReaderRepository extends CrudRepository<Reader, Long> {
+
     Reader findByIdNumber(Long idNumber);
     void deleteByIdNumber(Long idNumber);
 

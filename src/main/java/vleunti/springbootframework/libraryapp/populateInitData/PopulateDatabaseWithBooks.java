@@ -6,6 +6,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import vleunti.springbootframework.libraryapp.models.Book;
 import vleunti.springbootframework.libraryapp.models.repositories.BookRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 

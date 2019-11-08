@@ -24,6 +24,7 @@ public class ReaderServiceImpl implements ReaderService {
     @Override
     public Reader addNewReader(Reader reader) {
         reader.setDate(LocalDate.now());
+
         return this.readerRepository.save(reader);
     }
 
@@ -31,12 +32,14 @@ public class ReaderServiceImpl implements ReaderService {
     public List<Reader> findAllReaders() {
         List<Reader> readers = new ArrayList<>();
         readerRepository.findAll().forEach(readers::add);
+
         return readers;
     }
 
     @Override
     public Reader findReaderByIdNumber(Long idNumber) {
         Reader reader =  readerRepository.findByIdNumber(idNumber);
+
         return reader;
     }
 
@@ -47,6 +50,7 @@ public class ReaderServiceImpl implements ReaderService {
         System.out.println(allReaderBooks.size());
         if(allReaderBooks.size()==0)
             readerRepository.deleteByIdNumber(idNumber);
+
         return allReaderBooks.size();
     }
 
