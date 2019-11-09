@@ -1,11 +1,11 @@
-package vleunti.springbootframework.libraryapp.populateInitData;
+package vleunti.springbootframework.booklibraryapp.populateInitData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-import vleunti.springbootframework.libraryapp.models.Reader;
-import vleunti.springbootframework.libraryapp.models.repositories.ReaderRepository;
+import vleunti.springbootframework.booklibraryapp.models.Reader;
+import vleunti.springbootframework.booklibraryapp.models.repositories.ReaderRepository;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

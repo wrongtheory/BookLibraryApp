@@ -1,6 +1,6 @@
-package vleunti.springbootframework.libraryapp.services;
+package vleunti.springbootframework.booklibraryapp.services;
 
-import vleunti.springbootframework.libraryapp.models.Reader;
+import vleunti.springbootframework.booklibraryapp.models.Reader;
 import java.util.List;
 
 public interface ReaderService  {

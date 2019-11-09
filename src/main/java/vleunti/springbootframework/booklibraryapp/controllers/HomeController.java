@@ -1,4 +1,4 @@
-package vleunti.springbootframework.libraryapp.controllers;
+package vleunti.springbootframework.booklibraryapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

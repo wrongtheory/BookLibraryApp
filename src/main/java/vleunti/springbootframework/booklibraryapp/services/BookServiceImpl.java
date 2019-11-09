@@ -1,9 +1,9 @@
-package vleunti.springbootframework.libraryapp.services;
+package vleunti.springbootframework.booklibraryapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vleunti.springbootframework.libraryapp.models.Book;
-import vleunti.springbootframework.libraryapp.models.repositories.BookRepository;
+import vleunti.springbootframework.booklibraryapp.models.Book;
+import vleunti.springbootframework.booklibraryapp.models.repositories.BookRepository;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package vleunti.springbootframework.libraryapp.controllers;
+package vleunti.springbootframework.booklibraryapp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import vleunti.springbootframework.libraryapp.models.Reader;
-import vleunti.springbootframework.libraryapp.models.repositories.ReaderRepository;
-import vleunti.springbootframework.libraryapp.services.BookService;
-import vleunti.springbootframework.libraryapp.services.ReaderService;
+import vleunti.springbootframework.booklibraryapp.models.Reader;
+import vleunti.springbootframework.booklibraryapp.models.repositories.ReaderRepository;
+import vleunti.springbootframework.booklibraryapp.services.BookService;
+import vleunti.springbootframework.booklibraryapp.services.ReaderService;
 
 import javax.validation.Valid;
 import java.util.Optional;

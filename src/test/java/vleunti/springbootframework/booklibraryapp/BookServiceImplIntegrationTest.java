@@ -1,4 +1,4 @@
-package vleunti.springbootframework.libraryapp;
+package vleunti.springbootframework.booklibraryapp;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,10 +9,10 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
-import vleunti.springbootframework.libraryapp.models.Book;
-import vleunti.springbootframework.libraryapp.models.repositories.BookRepository;
-import vleunti.springbootframework.libraryapp.services.BookService;
-import vleunti.springbootframework.libraryapp.services.BookServiceImpl;
+import vleunti.springbootframework.booklibraryapp.models.Book;
+import vleunti.springbootframework.booklibraryapp.models.repositories.BookRepository;
+import vleunti.springbootframework.booklibraryapp.services.BookService;
+import vleunti.springbootframework.booklibraryapp.services.BookServiceImpl;
 import java.util.Arrays;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;

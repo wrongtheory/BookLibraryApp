@@ -1,4 +1,4 @@
-package vleunti.springbootframework.libraryapp;
+package vleunti.springbootframework.booklibraryapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

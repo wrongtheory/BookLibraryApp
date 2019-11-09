@@ -1,4 +1,4 @@
-package vleunti.springbootframework.libraryapp.models;
+package vleunti.springbootframework.booklibraryapp.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

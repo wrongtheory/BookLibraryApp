@@ -1,9 +1,9 @@
-package vleunti.springbootframework.libraryapp.models.repositories;
+package vleunti.springbootframework.booklibraryapp.models.repositories;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import vleunti.springbootframework.libraryapp.models.Reader;
+import vleunti.springbootframework.booklibraryapp.models.Reader;
 
 @Repository
 public interface ReaderRepository extends CrudRepository<Reader, Long> {

@@ -1,12 +1,12 @@
-package vleunti.springbootframework.libraryapp.services;
+package vleunti.springbootframework.booklibraryapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import vleunti.springbootframework.libraryapp.models.Book;
-import vleunti.springbootframework.libraryapp.models.Reader;
-import vleunti.springbootframework.libraryapp.models.repositories.BookRepository;
-import vleunti.springbootframework.libraryapp.models.repositories.ReaderRepository;
+import vleunti.springbootframework.booklibraryapp.models.Book;
+import vleunti.springbootframework.booklibraryapp.models.Reader;
+import vleunti.springbootframework.booklibraryapp.models.repositories.BookRepository;
+import vleunti.springbootframework.booklibraryapp.models.repositories.ReaderRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

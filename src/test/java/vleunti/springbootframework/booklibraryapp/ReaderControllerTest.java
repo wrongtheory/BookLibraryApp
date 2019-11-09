@@ -1,4 +1,4 @@
-package vleunti.springbootframework.libraryapp;
+package vleunti.springbootframework.booklibraryapp;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,14 +15,14 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import vleunti.springbootframework.libraryapp.controllers.ReaderController;
+import vleunti.springbootframework.booklibraryapp.controllers.ReaderController;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ReaderController.class)
-@ContextConfiguration(classes = LibraryappApplication.class)
+@ContextConfiguration(classes = BookLibraryappApplication.class)
 public class ReaderControllerTest {
 
     @Autowired

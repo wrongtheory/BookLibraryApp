@@ -1,4 +1,4 @@
-package vleunti.springbootframework.libraryapp;
+package vleunti.springbootframework.booklibraryapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import vleunti.springbootframework.libraryapp.models.Reader;
-import vleunti.springbootframework.libraryapp.models.repositories.ReaderRepository;
+import vleunti.springbootframework.booklibraryapp.models.Reader;
+import vleunti.springbootframework.booklibraryapp.models.repositories.ReaderRepository;
 
 import java.time.LocalDate;
 
