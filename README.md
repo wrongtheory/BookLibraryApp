@@ -1,6 +1,15 @@
-# Spring BookLibrary Web Application
+# Spring Boot BookLibrary Web Application
 
 BookLibrary is a small web application that can be used in a Book Library to maintain electronic all books that Library has, all readers(clients) that come to borrow books
+
+# Technologies
+
+- Spring Data JPA
+- Thymeleaf
+- H2 in-memory database
+- Project Lombok
+- Spring MVC
+
 
 ## Running BookLibrary locally
 
