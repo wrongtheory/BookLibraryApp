@@ -22,7 +22,7 @@ cd BookLibraryApp
 java -jar target/*.jar
 
 ```
-You can then access petclinic here: http://localhost:8080/
+You can then access Book Library here: http://localhost:8080/
 
 ![libraryreader](https://user-images.githubusercontent.com/7270827/68534412-af276a00-0334-11ea-83cb-4b35ba747c88.png)
 ![librarybooks](https://user-images.githubusercontent.com/7270827/68534461-16451e80-0335-11ea-8166-0f08f56d23b3.png)
