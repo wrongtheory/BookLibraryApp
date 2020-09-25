@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/books.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <title>Welcome to Library</title>
+</head>
+<body>
+
+<div class="index">
+    <ul>
+        <div>
+            <li><a class="active" th:href="@{books}">Books</a></li>
+            <li><a th:href="@{readers}">Readers</a></li>
+            <li><a th:href="@{index}">Home</a></li>
+        </div>
+    </ul>
+</div>
+
+<div class="readers">
+    <ul>
+        <div>
+            <li><a th:href="@{addbook}">Add Book</a></li>
+            <li><a th:href="@{allbooks}">Show All Books</a></li>
+            <li><a th:href="@{searchbook}">Search Book</a></li>
+        </div>
+    </ul>
+</div>
+
+<table style="border-spacing: 20px;" class="totalbooks" th:action="@{/books}" th:object="${totalBooks}">
+    <tr>
+        <td style="background-color: #4CAF50; text-align: center; width: 300px">
+            <p>Total Books</p>
+            <label id="total" th:text="${totalBooks}">Number</label>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

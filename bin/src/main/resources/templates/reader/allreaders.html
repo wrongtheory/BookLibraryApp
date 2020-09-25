@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <title>Welcome to Library</title>
+</head>
+
+<body>
+
+<div class="index">
+    <ul>
+        <div>
+            <li><a th:href="@{books}">Books</a></li>
+            <li><a class="active" th:href="@{readers}">Readers</a></li>
+            <li><a th:href="@{index}">Home</a></li>
+        </div>
+    </ul>
+</div>
+
+<div class="readers">
+    <ul>
+        <div>
+            <li><a th:href="@{addreader}" >Add Reader</a></li>
+            <li><a class="active" th:href="@{allreaders}" >Show All Readers</a></li>
+            <li><a th:href="@{searchreader}">Search Reader</a></li>
+        </div>
+    </ul>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>E-mail</th>
+        <th>ID Number</th>
+        <th>Address</th>
+        <th>Registered Date</th>
+    </tr>
+
+    <tr th:each="reader:${readers}">
+        <td th:text="${reader.id}">id</td>
+        <td th:text="${reader.firstname}">firstname</td>
+        <td th:text="${reader.lastname}">lastname</td>
+        <td th:text="${reader.email}">email</td>
+        <td th:text="${reader.idNumber}">idNumber</td>
+        <td th:text="${reader.address}">address</td>
+        <td th:text="${reader.getDate()}">getDate</td>
+
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/searchreader.css">
+    <link rel="stylesheet" type="text/css" href="css/giveabook.css">
+    <title>Welcome to Library</title>
+
+    <script>
+        function giveBookOpenForm() {
+            document.getElementById("giveabook").style.display = "block";
+        }
+
+        function giveBookCloseForm() {
+            document.getElementById("giveabook").style.display = "none";
+        }
+    </script>
+
+</head>
+<body>
+
+<div class="index">
+    <ul>
+        <div>
+            <li><a th:href="@{books}">Books</a></li>
+            <li><a class="active" th:href="@{readers}">Readers</a></li>
+            <li><a th:href="@{index}">Home</a></li>
+        </div>
+    </ul>
+</div>
+
+<div class="readers">
+    <ul>
+        <div>
+            <li><a th:href="@{addreader}" >Add Reader</a></li>
+            <li><a th:href="@{allreaders}" >Show All Readers</a></li>
+            <li><a class="active" th:href="@{searchreader}">Search Reader</a></li>
+        </div>
+    </ul>
+</div>
+
+<form action="" th:action="@{/searchreader(idNumber=${reader?.idNumber})}" th:object="${reader}" >
+
+        <label for="id">Find Reader By ID Number</label>
+        <input type="text" id="id" name="id" th:value="${reader?.idNumber}" placeholder="Reader ID"/>
+        <input type="submit" value="Search" id="input"/>
+
+
+        <table id="table1">
+
+            <tr1>
+                <th>ID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>E-mail</th>
+                <th>ID Number</th>
+                <th>Address</th>
+                <th><a style="display:inline-table;" th:text="${messages?.get(1)}" onclick="giveBookOpenForm(); return false;" href="" >Give a Book</a></th>
+            </tr1>
+
+            <tr th:each="re:${reader}" id="tr1">
+                <td th:text="${reader?.id}">id</td>
+                <td th:text="${reader?.firstname}">firstname</td>
+                <td th:text="${reader?.lastname}">lastname</td>
+                <td th:text="${reader?.email}">email</td>
+                <td th:text="${reader?.idNumber}">idNumber</td>
+                <td th:text="${reader?.address}">address</td>
+                <td>
+                    <a style="display:inline-table;" th:text="${messages?.get(0)}"  th:href="@{/delete(idNumber=${reader?.idNumber})}" th:value="${reader?.idNumber}">Delete Reader</a>
+                </td>
+            </tr>
+        </table>
+
+    <p style="color: #4CAF50">Reader Books</p>
+
+    <table id="table2" th:object="${allbooks}">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Return book</th>
+        </tr>
+        <tr th:each="book, state :${allbooks}" id="tr2"
+            th:classappend="${state.odd}?'odd-row':'even-row'">
+            <td th:text="${book.id}">id</td>
+            <td th:text="${book.bookTitle}">title</td>
+            <td th:text="${book.bookAuthor}">author</td>
+            <td><a style="display:inline-table;" th:text="${messages?.get(2)}" th:href="@{/returnbook(id=${book?.getId()},idNumber=${reader?.getIdNumber()})}" th:value="${reader?.idNumber}">Return Book</a></td>
+        </tr>
+    </table>
+</form>
+<div class="form-popup" id="giveabook">
+        <form action="" th:action="@{/searchreader(reader_id=${givebook?.getReader()?.getIdNumber()}, book_id=${givebook?.getId()})}"  th:object="${givebook}" class="form-container">
+        <input type="hidden" name="id" th:value="${reader?.getIdNumber()}"/>
+        <label for="book_id"><b>Book ID</b></label>
+        <input type="text" id="book_id" th:value="${givebook?.getId()}" placeholder="Enter Book ID" name="book_id" required>
+        <button type="submit" class="btn">OK</button>
+        <button type="button" class="btn cancel" onclick="giveBookCloseForm()">Close</button>
+    </form>
+</div>
+
+</body>
+</html>

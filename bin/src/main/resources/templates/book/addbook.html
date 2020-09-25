@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <title>Welcome to Library</title>
+</head>
+<body>
+
+<div class="index">
+    <ul>
+        <div>
+            <li><a class="active" th:href="@{books}">Books</a></li>
+            <li><a th:href="@{readers}">Readers</a></li>
+            <li><a th:href="@{index}">Home</a></li>
+        </div>
+    </ul>
+</div>
+
+<div class="readers">
+    <ul>
+        <div>
+            <li><a class="active" th:href="@{addbook}" >Add Book</a></li>
+            <li><a th:href="@{allbooks}">Show All Books</a></li>
+            <li><a th:href="@{searchbook}">Search Book</a></li>
+        </div>
+    </ul>
+</div>
+
+<div>
+    <form action="#" th:action="@{/addbook}" th:object="${addbook}" method="post">
+
+        <label for="title">Book Title</label>
+        <input type="text" id="title" name="bookTitle" placeholder="Book Title" th:value="${addbook?.bookTitle}" required/>
+
+        <label for="author">Book Author</label>
+        <input type="text" id="author" name="bookAuthor" placeholder="Book Author" th:value="${addbook?.bookAuthor}" required/>
+
+        <label for="copies">Copies</label>
+        <input type="text" id="copies" name="bookCopies" placeholder="Book copies" th:value="${addbook?.bookCopies}" required/>
+
+        <input type="submit" value="Submit"/>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -71,16 +71,9 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
-                    <forkCount>0</forkCount>
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
-        	<resource>
-        		<directory>src/main/resorces</directory>
-        		<filtering>true</filtering>
-        	</resource>
-        </resources>
     </build>
 
 </project>

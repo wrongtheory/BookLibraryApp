@@ -25,7 +25,7 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    // Base Book page with the total Books that exists in Database
+    // Base Book page with the total Books that exist in Database
     @GetMapping("/books")
     public String getBooksPage(Model model){
         model.addAttribute("totalBooks", bookRepository.count());
